@@ -4,7 +4,7 @@
 <meta charset = "UTF-8">
 <style>
     input , textarea{widows: 80%;margin: 10;padding: 10;}
-    a{color: blue;text-decoration: :underline}
+    a{color: blue;text-decoration: underline}
 </style>
 </head>
 
@@ -13,6 +13,7 @@
         <div><input id='title' type="text" placeholder="標題"/></div><br />
         <div><textarea id = 'text' style="height: 300px" placeholder="內文"></textarea></div><br />
         <button onclick="save()">儲存</button>
+        <!--button onclick="clear()">刪除</button-->
         <div>
             <table id='list'></table>
         </div>
@@ -26,7 +27,15 @@
             var text = oText.value;
             window.localStorage.setItem("notepad:" + title , text);
             showList();
+            document.getElementById('title').innerHTML = " ";
         }
+
+        /*function clear(){
+            var title = oTitle.value;
+            var text = oText.value;
+            window.localStorage.clear();
+            showList();
+        }*/
 
         function showList(){
             var rowHtml = " ";
